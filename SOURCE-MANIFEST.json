@@ -9,7 +9,7 @@
     "source_tree": "6f06c8dc46fb3b797066f3c0bd4b5f29a4adc384",
     "source_path": "<workspace>/android/kernel/ulefone/gq5012bf1",
     "history_preserved": false,
-    "note": "Sanitized C48 publication snapshot. The local C47 import commit 7a75e19e is not published because its history contained a non-redistributable FPSGO private wrapper.(adds vendor/mediatek/kernel_modules; all other mirrored paths identical to the C48 snapshot). Local source: kernel commit 27a31fbc7a70 (C49 vendor modules + C50 Wi-Fi MIC and licence notice; all other mirrored paths identical to the C48 snapshot)."
+    "note": "Sanitized C48 publication snapshot. The local C47 import commit 7a75e19e is not published because its history contained a non-redistributable FPSGO private wrapper. Local source: kernel commit 27a31fbc7a70 (C49 vendor modules + C50 Wi-Fi MIC and licence notice; all other mirrored paths identical to the C48 snapshot)."
   },
   "scope": {
     "included_directories": [
