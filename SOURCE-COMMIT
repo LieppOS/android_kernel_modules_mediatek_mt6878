@@ -1,5 +1,6 @@
 repository: android_kernel_ulefone_gq5012bf1
-commit: d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0
-tree: 5b87650c888eab5b14925e7799ec900d4f94f307
+commit: 188eae962d2f6d6664cfaea0aca2b0d867f05668
+tree: 2ea9ffad1abdba910ca39497108152ce1f09240c
 history_preserved: false
 mirror_schema: lieppos.module-source-mirror/1
+published_baseline_commit: d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0

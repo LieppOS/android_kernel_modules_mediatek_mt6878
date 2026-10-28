@@ -29,5 +29,6 @@ firmware/calibration material whose redistribution status is unresolved.
 GPL-2.0 is dominant. Per-file SPDX identifiers and the upstream `COPYING` /
 `LICENSES/` notices are preserved. Files without an SPDX header are not
 relicensed by LieppOS; their original notices continue to apply. No private key
-or signing secret is present. This mirror does not include `mtkcam`, GPU,
-connectivity or MET source.
+or signing secret is present. The C49 local update adds the MediaTek `gpu`, `connectivity`, `mtkcam` and
+MET module sources under `vendor/mediatek/kernel_modules/`; see its
+`SOURCE-MANIFEST.json` for exclusions.

@@ -9,8 +9,9 @@ MT6878T) build. It is not a standalone kernel build root.
 | Field | Value |
 | --- | --- |
 | Kernel repository | `android_kernel_ulefone_gq5012bf1` |
-| Source commit | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` (C48 publication snapshot) |
-| Source tree | `5b87650c888eab5b14925e7799ec900d4f94f307` |
+| Source commit | `188eae962d2f6d6664cfaea0aca2b0d867f05668` (C49 local integration; not yet published) |
+| Source tree | `2ea9ffad1abdba910ca39497108152ce1f09240c` |
+| Published baseline | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` (C48 publication snapshot) |
 | Source base | C44 `ce07b664` + C45 `d02a8942` + C46 `2c896fab` |
 | Reference build | C44 `6.1.115-mt6878-gq5012bf1-c29+` |
 
@@ -43,12 +44,15 @@ mirror is deliberately limited to MediaTek-owned paths to avoid duplicate Git
 ownership. The Ulefone mirror is withheld from publication pending a
 firmware/calibration redistribution review.
 
-## Not included
+## Vendor out-of-tree modules (C49)
 
-MediaTek's out-of-tree module trees (`gpu/`, `connectivity/`, `mtkcam/`,
-`met_drv_v3/`) are separate source units referenced by the build environment.
-They were not imported in C47 because they are large, separately licensed and
-not required to reproduce the kernel `Image`, the panel module or `mtk-mmc.ko`.
+- `vendor/mediatek/kernel_modules/{gpu,connectivity,mtkcam,met}/` - MediaTek
+  Mali r44p1, connectivity (conninfra, connfem, WLAN adaptor/gen4m source, BT,
+  GPS, FM), camera/ISP and MET module sources, mirrored byte-for-byte from the
+  kernel snapshot. Per-file provenance, exclusions (including the
+  no-redistribution `wlan/core/gen4m/mgmt/tkip_mic.c`) and the four
+  intentionally unresolved optional-component symlinks are recorded in
+  `vendor/mediatek/kernel_modules/SOURCE-MANIFEST.json`.
 
 ## Build relationship
 
