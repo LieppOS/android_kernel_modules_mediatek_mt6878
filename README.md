@@ -9,8 +9,8 @@ MT6878T) build. It is not a standalone kernel build root.
 | Field | Value |
 | --- | --- |
 | Kernel repository | `android_kernel_ulefone_gq5012bf1` |
-| Source commit | `188eae962d2f6d6664cfaea0aca2b0d867f05668` (C49 local integration; not yet published) |
-| Source tree | `2ea9ffad1abdba910ca39497108152ce1f09240c` |
+| Source commit | `27a31fbc7a70b13efd74b50721147e44f8914e84` (C49/C50 local integration; not yet published) |
+| Source tree | `6f06c8dc46fb3b797066f3c0bd4b5f29a4adc384` |
 | Published baseline | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` (C48 publication snapshot) |
 | Source base | C44 `ce07b664` + C45 `d02a8942` + C46 `2c896fab` |
 | Reference build | C44 `6.1.115-mt6878-gq5012bf1-c29+` |
@@ -53,6 +53,11 @@ firmware/calibration redistribution review.
   no-redistribution `wlan/core/gen4m/mgmt/tkip_mic.c`) and the four
   intentionally unresolved optional-component symlinks are recorded in
   `vendor/mediatek/kernel_modules/SOURCE-MANIFEST.json`.
+- `connectivity/wlan/core/gen4m/mgmt/tkip_mic.c` is a LieppOS independent
+  implementation (C50, BSD-2-Clause) of the TKIP Michael MIC receive check; the
+  vendor file of that name carries a no-redistribution notice and is not
+  included. `connectivity/wlan/core/gen4m/wpa_supp/README` is the verbatim
+  hostap README (BSD-3-Clause) that the hostap-derived crypto files refer to.
 
 ## Build relationship
 

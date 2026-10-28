@@ -2,14 +2,14 @@
   "campaign": "C47",
   "schema": "lieppos.module-source-mirror/1",
   "repository": "android_kernel_modules_mediatek_mt6878",
-  "description": "# MediaTek MT6878 kernel module source mirror\n\nThis repository holds a **verified, sanitized source mirror** of the MediaTek-owned\nkernel source used by the LieppOS Ulefone Armor 29 Pro Thermal (GQ5012BF1 /\nMT6878T) build. It is not a standalone kernel build root.\n\n## Source\n\n| Field | Value |\n| --- | --- |\n| Kernel repository | `android_kernel_ulefone_gq5012bf1` |\n| Source commit | `188eae962d2f6d6664cfaea0aca2b0d867f05668` (C49 local integration; not yet published) |\n| Source tree | `2ea9ffad1abdba910ca39497108152ce1f09240c` |\n| Published baseline | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` (C48 publication snapshot) |\n| Source base | C44 `ce07b664` + C45 `d02a8942` + C46 `2c896fab` |\n| Reference build | C44 `6.1.115-mt6878-gq5012bf1-c29+` |\n\nThe source commit is a **sanitized C48 publication snapshot**, not the local C47\nimport commit `7a75e19e`. The C47 local history is not published because it\ncontained a non-redistributable FPSGO private wrapper. Every retained file hash\nis recorded in `SOURCE-MANIFEST.json`.\n\n## Included\n\n- `drivers/misc/mediatek/` - MediaTek platform, power, thermal, audio-IPI,\n  camera, connectivity helpers, display helpers and board drivers that are not\n  Ulefone-owned.\n- `drivers/gpu/drm/mediatek/` - MediaTek DRM/KMS and `mediatek_v2` panel provider.\n- `drivers/clk/mediatek/`, `drivers/soc/mediatek/`,\n  `drivers/thermal/mediatek/` - MediaTek clock, SoC and thermal support.\n- `drivers/mmc/host/mtk-mmc{,-dbg}.{c,h}` - the MMC host driver fixed in C46.\n\n## Publication exclusions (C48)\n\n| Path | Reason |\n| --- | --- |\n| `drivers/misc/mediatek/performance/lieppos14/source/` | Proprietary FPSGO wrapper (`a Proprietary module-license string`, explicit no-redistribution notice) |\n| `.../lieppos14/{tools,tests,targets}/` | LieppOS experimental tooling, not MediaTek source and not a build input |\n| `drivers/misc/mediatek/tiny_lcd/` (except `Kconfig`) | Ulefone board driver with a 1.4 MB vendor logo/init blob |\n| `drivers/misc/mediatek/nfc/st21nfc/`, `yft_usb/`, `sensor/2.0/yft_devinfo/` | Ulefone-owned board drivers |\n\nThe canonical kernel tree still contains the excluded Ulefone sources. This\nmirror is deliberately limited to MediaTek-owned paths to avoid duplicate Git\nownership. The Ulefone mirror is withheld from publication pending a\nfirmware/calibration redistribution review.\n\n## Vendor out-of-tree modules (C49)\n\n- `vendor/mediatek/kernel_modules/{gpu,connectivity,mtkcam,met}/` - MediaTek\n  Mali r44p1, connectivity (conninfra, connfem, WLAN adaptor/gen4m source, BT,\n  GPS, FM), camera/ISP and MET module sources, mirrored byte-for-byte from the\n  kernel snapshot. Per-file provenance, exclusions (including the\n  no-redistribution `wlan/core/gen4m/mgmt/tkip_mic.c`) and the four\n  intentionally unresolved optional-component symlinks are recorded in\n  `vendor/mediatek/kernel_modules/SOURCE-MANIFEST.json`.\n\n## Build relationship\n\nKbuild, generated headers, `Module.symvers`, KCFI type hashes and modversion CRCs\nare produced by the combined kernel tree. This mirror preserves the original\nrelative paths and license notices for review and provenance; it is not\ncompiled independently.\n\n## Licensing\n\nGPL-2.0 is the dominant license. `SOURCE-MANIFEST.json` records the SPDX\nidentifier found in each file. The C48 publication removes the only files with\nexplicit MediaTek no-redistribution notices. Files without an SPDX header\nremain subject to their original notices; no relicensing is claimed.\n",
+  "description": "# MediaTek MT6878 kernel module source mirror\n\nThis repository holds a **verified, sanitized source mirror** of the MediaTek-owned\nkernel source used by the LieppOS Ulefone Armor 29 Pro Thermal (GQ5012BF1 /\nMT6878T) build. It is not a standalone kernel build root.\n\n## Source\n\n| Field | Value |\n| --- | --- |\n| Kernel repository | `android_kernel_ulefone_gq5012bf1` |\n| Source commit | `27a31fbc7a70b13efd74b50721147e44f8914e84` (C49/C50 local integration; not yet published) |\n| Source tree | `6f06c8dc46fb3b797066f3c0bd4b5f29a4adc384` |\n| Published baseline | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` (C48 publication snapshot) |\n| Source base | C44 `ce07b664` + C45 `d02a8942` + C46 `2c896fab` |\n| Reference build | C44 `6.1.115-mt6878-gq5012bf1-c29+` |\n\nThe source commit is a **sanitized C48 publication snapshot**, not the local C47\nimport commit `7a75e19e`. The C47 local history is not published because it\ncontained a non-redistributable FPSGO private wrapper. Every retained file hash\nis recorded in `SOURCE-MANIFEST.json`.\n\n## Included\n\n- `drivers/misc/mediatek/` - MediaTek platform, power, thermal, audio-IPI,\n  camera, connectivity helpers, display helpers and board drivers that are not\n  Ulefone-owned.\n- `drivers/gpu/drm/mediatek/` - MediaTek DRM/KMS and `mediatek_v2` panel provider.\n- `drivers/clk/mediatek/`, `drivers/soc/mediatek/`,\n  `drivers/thermal/mediatek/` - MediaTek clock, SoC and thermal support.\n- `drivers/mmc/host/mtk-mmc{,-dbg}.{c,h}` - the MMC host driver fixed in C46.\n\n## Publication exclusions (C48)\n\n| Path | Reason |\n| --- | --- |\n| `drivers/misc/mediatek/performance/lieppos14/source/` | Proprietary FPSGO wrapper (`a Proprietary module-license string`, explicit no-redistribution notice) |\n| `.../lieppos14/{tools,tests,targets}/` | LieppOS experimental tooling, not MediaTek source and not a build input |\n| `drivers/misc/mediatek/tiny_lcd/` (except `Kconfig`) | Ulefone board driver with a 1.4 MB vendor logo/init blob |\n| `drivers/misc/mediatek/nfc/st21nfc/`, `yft_usb/`, `sensor/2.0/yft_devinfo/` | Ulefone-owned board drivers |\n\nThe canonical kernel tree still contains the excluded Ulefone sources. This\nmirror is deliberately limited to MediaTek-owned paths to avoid duplicate Git\nownership. The Ulefone mirror is withheld from publication pending a\nfirmware/calibration redistribution review.\n\n## Vendor out-of-tree modules (C49)\n\n- `vendor/mediatek/kernel_modules/{gpu,connectivity,mtkcam,met}/` - MediaTek\n  Mali r44p1, connectivity (conninfra, connfem, WLAN adaptor/gen4m source, BT,\n  GPS, FM), camera/ISP and MET module sources, mirrored byte-for-byte from the\n  kernel snapshot. Per-file provenance, exclusions (including the\n  no-redistribution `wlan/core/gen4m/mgmt/tkip_mic.c`) and the four\n  intentionally unresolved optional-component symlinks are recorded in\n  `vendor/mediatek/kernel_modules/SOURCE-MANIFEST.json`.\n- `connectivity/wlan/core/gen4m/mgmt/tkip_mic.c` is a LieppOS independent\n  implementation (C50, BSD-2-Clause) of the TKIP Michael MIC receive check; the\n  vendor file of that name carries a no-redistribution notice and is not\n  included. `connectivity/wlan/core/gen4m/wpa_supp/README` is the verbatim\n  hostap README (BSD-3-Clause) that the hostap-derived crypto files refer to.\n\n## Build relationship\n\nKbuild, generated headers, `Module.symvers`, KCFI type hashes and modversion CRCs\nare produced by the combined kernel tree. This mirror preserves the original\nrelative paths and license notices for review and provenance; it is not\ncompiled independently.\n\n## Licensing\n\nGPL-2.0 is the dominant license. `SOURCE-MANIFEST.json` records the SPDX\nidentifier found in each file. The C48 publication removes the only files with\nexplicit MediaTek no-redistribution notices. Files without an SPDX header\nremain subject to their original notices; no relicensing is claimed.\n",
   "source": {
     "kernel_repository": "android_kernel_ulefone_gq5012bf1",
-    "source_commit": "188eae962d2f6d6664cfaea0aca2b0d867f05668",
-    "source_tree": "2ea9ffad1abdba910ca39497108152ce1f09240c",
+    "source_commit": "27a31fbc7a70b13efd74b50721147e44f8914e84",
+    "source_tree": "6f06c8dc46fb3b797066f3c0bd4b5f29a4adc384",
     "source_path": "<workspace>/android/kernel/ulefone/gq5012bf1",
     "history_preserved": false,
-    "note": "Sanitized C48 publication snapshot. The local C47 import commit 7a75e19e is not published because its history contained a non-redistributable FPSGO private wrapper. C49 local source: kernel commit 188eae962d2f (adds vendor/mediatek/kernel_modules; all other mirrored paths identical to the C48 snapshot)."
+    "note": "Sanitized C48 publication snapshot. The local C47 import commit 7a75e19e is not published because its history contained a non-redistributable FPSGO private wrapper.(adds vendor/mediatek/kernel_modules; all other mirrored paths identical to the C48 snapshot). Local source: kernel commit 27a31fbc7a70 (C49 vendor modules + C50 Wi-Fi MIC and licence notice; all other mirrored paths identical to the C48 snapshot)."
   },
   "scope": {
     "included_directories": [
@@ -37,8 +37,8 @@
     ]
   },
   "import": {
-    "file_count": 7064,
-    "bytes": 135917141,
+    "file_count": 7066,
+    "bytes": 135930730,
     "private_key_files": 0,
     "binary_files": 0,
     "symlinks": 182
@@ -46,15 +46,16 @@
   "license_summary": {
     "spdx_counts": {
       "GPL-2.0": 4816,
-      "NO-SPDX-HEADER": 836,
-      "BSD-2-Clause": 774,
+      "NO-SPDX-HEADER": 837,
+      "BSD-2-Clause": 775,
       "GPL-2.0 WITH Linux-syscall-note": 445,
       "GPL-2.0-only": 179,
       "GPL-2.0+": 11,
       "GPL-2.0-or-later": 2,
       "GPL-1.0+ WITH Linux-syscall-note": 1
     },
-    "files_without_spdx_header": 836
+    "files_without_spdx_header": 837,
+    "c50_review": "every vendor/mediatek/kernel_modules file without an SPDX line has a recorded disposition; see docs/integration/C50-LICENSE-REVIEW.md in the LieppOS workspace"
   },
   "files": [
     {
@@ -25770,8 +25771,8 @@
     },
     {
       "path": "vendor/mediatek/kernel_modules/SOURCE-MANIFEST.json",
-      "sha256": "84a88969a77d6a87d8550da8e9a8e52b0318722a1ed9fba1b2d25a524c420f95",
-      "bytes": 736727,
+      "sha256": "340afc7bf6da14f9c51a57da78c43ee0c5f0ec7981b6f70d23f17e62d487683a",
+      "bytes": 737710,
       "mode": "0o644",
       "spdx": null
     },
@@ -37404,6 +37405,13 @@
       "spdx": "BSD-2-Clause"
     },
     {
+      "path": "vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/mgmt/tkip_mic.c",
+      "sha256": "6ab264b99b103e795150ab8cb8a35b739efb47055861b3a0fde2e9302325f31e",
+      "bytes": 10255,
+      "mode": "0o644",
+      "spdx": "BSD-2-Clause"
+    },
+    {
       "path": "vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/mgmt/twt.c",
       "sha256": "f82ad0083793d0496a01504ee8b02691c92ecb237c3ada7466ef85a093a66f36",
       "bytes": 66331,
@@ -38753,6 +38761,13 @@
       "bytes": 19167,
       "mode": "0o644",
       "spdx": "BSD-2-Clause"
+    },
+    {
+      "path": "vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/wpa_supp/README",
+      "sha256": "f1b5992bbdd015c3ccb7faaadd62ef58ed821e15b9329bf2ceb27511ccc3f562",
+      "bytes": 2351,
+      "mode": "0o644",
+      "spdx": null
     },
     {
       "path": "vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m/wpa_supp/src/ap/wpa_auth.c",
@@ -50637,7 +50652,7 @@
     "canonical_build_tree": "<workspace>/android/kernel/ulefone/gq5012bf1",
     "reason": "Kbuild, generated headers, Module.symvers and KCFI/modversion inputs are coherent only in the combined kernel tree."
   },
-  "generated_at": "2026-10-28T12:30:00Z",
+  "generated_at": "2026-10-28T18:00:00Z",
   "notes": [
     "C49: external gpu/connectivity/mtkcam/met_drv_v3 trees are mirrored under vendor/mediatek/kernel_modules from the kernel snapshot; per-file provenance, exclusions and four intentionally unresolved symlinks are in vendor/mediatek/kernel_modules/SOURCE-MANIFEST.json.",
     "C48 publication removes the FPSGO private wrapper and Ulefone-owned board paths; the mirror is not a standalone build root."
@@ -50660,15 +50675,20 @@
     ],
     "ownership_note": "Ulefone-specific board drivers are owned by android_kernel_modules_ulefone_gq5012bf1, which is withheld pending firmware/calibration redistribution review."
   },
-  "c49_local_integration": {
-    "campaign": "C49",
+  "local_integration": {
+    "campaigns": [
+      "C49",
+      "C50"
+    ],
     "status": "local-only; not published",
-    "kernel_commit": "188eae962d2f6d6664cfaea0aca2b0d867f05668",
-    "kernel_tree": "2ea9ffad1abdba910ca39497108152ce1f09240c",
-    "added_path": "vendor/mediatek/kernel_modules",
-    "added_files": 3391,
-    "added_symlinks": 182,
-    "added_bytes": 93497392,
+    "kernel_commit": "27a31fbc7a70b13efd74b50721147e44f8914e84",
+    "kernel_tree": "6f06c8dc46fb3b797066f3c0bd4b5f29a4adc384",
+    "c49_kernel_commit": "188eae962d2f6d6664cfaea0aca2b0d867f05668",
+    "c50_changes": [
+      "connectivity/wlan/core/gen4m/mgmt/tkip_mic.c: LieppOS independent TKIP Michael MIC receive check (BSD-2-Clause) replacing the excluded no-redistribution vendor file",
+      "connectivity/wlan/core/gen4m/wpa_supp/README: verbatim hostap README (BSD-3-Clause) referenced by the wpa_supp crypto files",
+      "SOURCE-MANIFEST.json: lieppos_authored overlay records"
+    ],
     "method": "git archive <kernel_commit> vendor/mediatek/kernel_modules | tar -x; all pre-existing mirror paths unchanged (identical in kernel_commit)",
     "published_baseline": {
       "kernel_commit": "d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0",
