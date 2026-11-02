@@ -13164,8 +13164,8 @@
     },
     {
       "path": "drivers/misc/mediatek/irtx/mtk_irtx_pwm.c",
-      "sha256": "8a09523e7cdcd9a90ea7f47c6c5f988fc679c8ed6d9c0f84c7325dbc99a8f651",
-      "bytes": 7612,
+      "sha256": "03175948a1ae2f7c795dcd72d48adc77ffbe3cc4ae7f91268e41b5484b8820c8",
+      "bytes": 7747,
       "mode": "0o644",
       "spdx": "GPL-2.0"
     },
@@ -50675,6 +50675,15 @@
     ],
     "ownership_note": "Ulefone-specific board drivers are owned by android_kernel_modules_ulefone_gq5012bf1, which is withheld pending firmware/calibration redistribution review."
   },
+  "patch_overlays": [
+    {
+      "path": "drivers/misc/mediatek/irtx/mtk_irtx_pwm.c",
+      "kernel_commit": "812888453bfe8bdc7866ccc98d44f6ae58cd2ce9",
+      "method": "Copy this file byte-for-byte from the canonical combined kernel tree; update its files entry. Other mirror paths are unchanged.",
+      "origin": "UPSTREAM_MODIFIED: existing MediaTek GPL-2.0 source with LieppOS validation, resource-lifecycle and host-test changes",
+      "validation": "Offline C29 module build/modpost, KCFI and import CRC checks, host ASan/UBSan tests. Not deployed or hardware-tested. Tests live in the kernel repository."
+    }
+  ],
   "local_integration": {
     "campaigns": [
       "C49",

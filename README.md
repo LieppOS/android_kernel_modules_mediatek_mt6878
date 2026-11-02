@@ -59,6 +59,21 @@ firmware/calibration redistribution review.
   included. `connectivity/wlan/core/gen4m/wpa_supp/README` is the verbatim
   hostap README (BSD-3-Clause) that the hostap-derived crypto files refer to.
 
+## Per-file overlays
+
+`drivers/misc/mediatek/irtx/mtk_irtx_pwm.c` is synchronized byte-for-byte from
+canonical kernel commit `812888453bfe8bdc7866ccc98d44f6ae58cd2ce9`.
+It adds safe initialization, bounded carrier/waveform validation, explicit 33%
+(one-third) duty support, per-transfer PWM state and balanced regulator cleanup.
+`SOURCE-MANIFEST.json` records this overlay separately from the historical base.
+The kernel repository owns the implementation and host tests; synchronization is
+a direct copy followed by a per-file manifest hash/size update, not an independent
+edit. This does not claim that unrelated mirror files match current kernel HEAD.
+
+Offline module build/modpost and ASan/UBSan callback tests passed. No phone
+installation or optical hardware test was performed; the OEM trailing-1-us
+padding ambiguity and PWM DMA-size encoding are documented limitations.
+
 ## Build relationship
 
 Kbuild, generated headers, `Module.symvers`, KCFI type hashes and modversion CRCs
